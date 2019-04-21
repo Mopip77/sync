@@ -1,0 +1,3 @@
+DATETIME_PATTERN: "%Y-%m-%d_%H:%M:%S"
+DEFAULT_DESTPATH: /home/mopip77/Desktop/univercity/MintBackup
+TRASH_FOLDER_PATH: /home/mopip77/Documents/sync_trash

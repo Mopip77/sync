@@ -1,0 +1,36 @@
+[
+    {
+        "name": "notebook",
+        "src": "/home/mopip77/Documents/notebook",
+        "dest": [
+            {
+                "destPath": "/home/mopip77/Desktop/univercity/MintBackup/notebook",
+                "expiredPeriod": 604800,
+                "lastSyncTime": "2019-04-18_19:00:01",
+                "remote": [
+                    {
+                        "host": "47.107.90.226",
+                        "port": 22,
+                        "username": "root",
+                        "pwd": null,
+                        "privateKeyPath": "/home/mopip77/.ssh/id_rsa",
+                        "rootPath": "/var/www/html/notebook",
+                        "syncReference": 0
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "vnote",
+        "src": "/home/mopip77/Documents/vnote",
+        "dest": [
+            {
+                "destPath": "/home/mopip77/Desktop/univercity/MintBackup/vnote",
+                "expiredPeriod": 604800,
+                "lastSyncTime": "2019-04-18_19:00:01",
+                "remote": null
+            }
+        ]
+    }
+]
