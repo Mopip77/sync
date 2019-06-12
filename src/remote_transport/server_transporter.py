@@ -32,21 +32,25 @@ class ServerTransporter():
 
         self._ssh = paramiko.SSHClient()
         self._ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        transport = paramiko.Transport((self.host, self.port))
         if self.pwd is not None:
             self._ssh.connect(
                 hostname=self.host,
                 port=self.port,
                 username=self.username,
-                password=self.pwd)
+                password=self.pwd,
+                timeout=5)
+            # transport 没有timeout参数, 只能放在ssh connect后面, 不然无法抛出异常, 造成死锁
+            transport = paramiko.Transport((self.host, self.port))
             transport.connect(username=self.username, password=self.pwd)
         else:
             self._ssh.connect(
                 hostname=self.host,
                 port=self.port,
                 username=self.username,
-                key_filename=self.privateKeyPath)
+                key_filename=self.privateKeyPath,
+                timeout=5)
             private_key = paramiko.RSAKey.from_private_key_file(self.privateKeyPath)
+            transport = paramiko.Transport((self.host, self.port))
             transport.connect(username=self.username, pkey=private_key)
 
         self._sftp = paramiko.SFTPClient.from_transport(transport)
@@ -109,12 +113,16 @@ class ServerTransporter():
         config['attachCommand'] = self.attachCommand
         if log is not None:
             config['transLog'] = self.transLog
-        print(self.transLog)
-        print(config)
+        # print(self.transLog)
+        print(json.dumps(config, indent=2))
         return config
 
     def __str__(self):
         return self.username + '@' + self.host + ':' + self.rootPath
+
+    @staticmethod
+    def getFormattedStr(config):
+        return config['username'] + '@' + config['host'] + ':' + config['rootPath']
 
     @staticmethod
     def execAttachCommand(config):

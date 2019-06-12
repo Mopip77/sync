@@ -1,1 +1,36 @@
-[{"name": "ML", "src": "/home/mopip77/Documents/notebook/ML", "dest": [{"destPath": "/home/mopip77/Desktop/univercity/MintBackup/ML", "expiredPeriod": 604800, "lastSyncTime": "2019-04-21_23:05:47", "remote": [{"host": "47.107.90.226", "port": 22, "username": "root", "pwd": null, "privateKeyPath": "/home/mopip77/.ssh/id_rsa", "rootPath": "/var/www/html/ML", "attachCommand": "/root/category_generator/convert_ipynb_and_generate_category.sh /var/www/html/ML"}]}]}]
+[
+  {
+    "name": "ML",
+    "src": "/home/mopip77/Documents/notebook/ML",
+    "dest": [
+      {
+        "destPath": "/home/mopip77/Desktop/univercity/MintBackup/ML",
+        "expiredPeriod": 2592000,
+        "lastSyncTime": "2019-06-12_22:34:09",
+        "remote": [
+          {
+            "host": "47.107.90.226",
+            "port": 22,
+            "username": "root",
+            "pwd": null,
+            "privateKeyPath": "/home/mopip77/.ssh/id_rsa",
+            "rootPath": "/var/www/html/ML",
+            "attachCommand": "/root/category_generator/convert_ipynb_and_generate_category.sh /var/www/html/ML"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "wallpaper",
+    "src": "/home/mopip77/Pictures/wallpaper",
+    "dest": [
+      {
+        "destPath": "/home/mopip77/Desktop/univercity/MintBackup/wallpaper",
+        "expiredPeriod": 2592000,
+        "lastSyncTime": "2019-06-12_22:34:09",
+        "remote": []
+      }
+    ]
+  }
+]

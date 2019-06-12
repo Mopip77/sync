@@ -68,8 +68,7 @@ class TrashManager():
                 '_'.join(srcRootPath.split('/')) 
                 )
 
-if __name__ == "__main__":
-    a = TrashManager("/home/mopip77/Desktop/univercity/MintBackup/_cycle_")
-    a.deleteExpiredFiles()
 
-        
+if __name__ == "__main__":
+    a = TrashManager("/home/mopip77/Documents/sync_trash", "/home/mopip77/Desktop/univercity/MintBackup/ML", 1292000)
+    a.deleteExpiredFiles()

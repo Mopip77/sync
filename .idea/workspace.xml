@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="266eb94b-5feb-4bb2-bc62-78fa6a9b6410" name="Default Changelist" comment="" />
+    <list default="true" id="266eb94b-5feb-4bb2-bc62-78fa6a9b6410" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/folder_reference.json" beforeDir="false" afterPath="$PROJECT_DIR$/folder_reference.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run.py" beforeDir="false" afterPath="$PROJECT_DIR$/run.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backup/backup.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/backup/backup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/remote_transport/server_transporter.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/remote_transport/server_transporter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/trash_manager/trash_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/trash_manager/trash_manager.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,9 +17,9 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/sync$run.coverage" NAME="run Coverage Results" MODIFIED="1555831243211" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/sync$trash_manager.coverage" NAME="trash_manager Coverage Results" MODIFIED="1555774583749" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/trash_manager" />
+    <SUITE FILE_PATH="coverage/sync$trash_manager.coverage" NAME="trash_manager Coverage Results" MODIFIED="1560349849848" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/trash_manager" />
     <SUITE FILE_PATH="coverage/sync$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1555839077995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
-    <SUITE FILE_PATH="coverage/sync$backup.coverage" NAME="backup Coverage Results" MODIFIED="1555842053073" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
+    <SUITE FILE_PATH="coverage/sync$backup.coverage" NAME="backup Coverage Results" MODIFIED="1555999073540" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src" />
   </component>
   <component name="FavoritesManager">
     <favorites_list name="sync" />
@@ -22,51 +29,62 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/folder_reference.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="457" selection-start-column="377" selection-end-column="457" />
+            <state relative-caret-position="168">
+              <caret line="7" column="32" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ipynb_convertor_category_generator/category_generator.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ipynb_convertor_category_generator/convert_ipynb_and_generate_category.sh">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1769">
+              <caret line="48" column="23" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
+              <folding>
+                <element signature="e#23#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ipynb_convertor_category_generator/filter.py">
+        <entry file="file://$PROJECT_DIR$/src/trash_manager/trash_manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/run.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="18" column="16" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+            <state relative-caret-position="166">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
               <folding>
-                <element signature="e#0#10#0" expanded="true" />
+                <element signature="e#0#9#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/remote_transport/server_transporter.py">
+        <entry file="file://$PROJECT_DIR$/src/utils/myfile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="511">
-              <caret line="125" column="42" lean-forward="true" selection-start-line="125" selection-start-column="42" selection-end-line="125" selection-end-column="42" />
+            <state relative-caret-position="144">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
               <folding>
-                <element signature="e#0#15#0" expanded="true" />
+                <element signature="e#0#9#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///usr/local/anaconda3/lib/python3.7/posixpath.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/paramiko/transport.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="823">
+              <caret line="287" column="8" selection-start-line="287" selection-start-column="8" selection-end-line="287" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -74,8 +92,38 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/backup/backup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="123" column="52" selection-start-line="123" selection-start-column="52" selection-end-line="123" selection-end-column="52" />
+            <state relative-caret-position="202">
+              <caret line="142" column="53" selection-start-line="142" selection-start-column="53" selection-end-line="142" selection-end-column="53" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="24">
+              <caret line="1" column="61" lean-forward="true" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sync_history.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="48">
+              <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/utils/mytime.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -111,7 +159,13 @@
       <find>getConfig</find>
       <find>.rm</find>
       <find>att</find>
+      <find>showReference</find>
+      <find>print</find>
+      <find>trash</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -123,7 +177,6 @@
         <option value="$PROJECT_DIR$/src/font_color/font_color.py" />
         <option value="$PROJECT_DIR$/src/test.py" />
         <option value="$PROJECT_DIR$/src/utils/mytime.py" />
-        <option value="$PROJECT_DIR$/src/trash_manager/trash_manager.py" />
         <option value="$PROJECT_DIR$/src/backup.py" />
         <option value="$PROJECT_DIR$/src/font_color/__init__.py" />
         <option value="$PROJECT_DIR$/src/remote_transport/__init__.py" />
@@ -134,23 +187,26 @@
         <option value="$PROJECT_DIR$/src/__init__.py" />
         <option value="$PROJECT_DIR$/setup.sh" />
         <option value="$PROJECT_DIR$/run.py" />
-        <option value="$PROJECT_DIR$/folder_reference.json" />
+        <option value="$PROJECT_DIR$/sync_history.log" />
         <option value="$PROJECT_DIR$/src/backup/backup.py" />
         <option value="$PROJECT_DIR$/src/remote_transport/server_transporter.py" />
+        <option value="$PROJECT_DIR$/folder_reference.json" />
+        <option value="$PROJECT_DIR$/src/trash_manager/trash_manager.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="97" />
-    <option name="y" value="25" />
-    <option name="width" value="1590" />
-    <option name="height" value="1055" />
+    <option name="y" value="168" />
+    <option name="width" value="1920" />
+    <option name="height" value="912" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -161,7 +217,7 @@
             <path>
               <item name="sync" type="b2602c69:ProjectViewProjectNode" />
               <item name="sync" type="462c0819:PsiDirectoryNode" />
-              <item name="ipynb_convertor_category_generator" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="sync" type="b2602c69:ProjectViewProjectNode" />
@@ -171,28 +227,27 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Documents/notebook" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/yy_stream_log" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ipynb_convertor_category_generator" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/backup" />
       <recent name="$PROJECT_DIR$/src/utils" />
       <recent name="$PROJECT_DIR$/src/file_utils" />
       <recent name="$PROJECT_DIR$/src/remote_transport" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/ipynb_convertor_category_generator" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -207,7 +262,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.backup">
+  <component name="RunManager" selected="Python.trash_manager">
     <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="sync" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -298,10 +353,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.trash_manager" />
         <item itemvalue="Python.backup" />
         <item itemvalue="Python.__init__" />
         <item itemvalue="Python.run" />
-        <item itemvalue="Python.trash_manager" />
       </list>
     </recent_temporary>
   </component>
@@ -328,11 +383,15 @@
       <workItem from="1555851870725" duration="1173000" />
       <workItem from="1555853523618" duration="1903000" />
       <workItem from="1555857672460" duration="1212000" />
+      <workItem from="1555994657826" duration="4691000" />
+      <workItem from="1556067326958" duration="63000" />
+      <workItem from="1556458777841" duration="16000" />
+      <workItem from="1560348626792" duration="1321000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53010000" />
+    <option name="totallyTimeSpent" value="59101000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -347,13 +406,13 @@
     <frame x="-1" y="25" width="1922" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49353448" visible="true" weight="0.17326203" />
-      <window_info id="Structure" order="1" sideWeight="0.5064655" side_tool="true" visible="true" weight="0.17326203" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.60251045" weight="0.18181819" />
+      <window_info id="Structure" order="1" sideWeight="0.39748955" side_tool="true" weight="0.18181819" />
       <window_info id="Favorites" order="2" sideWeight="0.5005714" side_tool="true" weight="0.1868071" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32901832" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32112068" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4838362" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32864866" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32108107" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4010811" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32912844" />
@@ -361,8 +420,8 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32901832" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.3275862" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.3275862" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32756758" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.32756758" />
       <window_info active="true" anchor="bottom" id="File Transfer" order="13" visible="true" weight="0.32901832" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -400,6 +459,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/src/trash_manager/trash_manager.py</url>
+          <line>32</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -408,6 +474,25 @@
         </breakpoint>
       </default-breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>fileLastModifyTime(filePath)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>fileLastModifyTime(filePath) &lt; self.expireTime</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>self.expireTime</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/a.py" />
@@ -481,23 +566,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/mytime.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/utils/myfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/font_color/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
@@ -550,13 +618,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test.py" />
     <entry file="file://$PROJECT_DIR$/src/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/config.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notify-cron.sh">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -588,20 +649,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/trash_manager/trash_manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1728">
-          <caret line="72" column="24" selection-start-line="72" selection-start-column="6" selection-end-line="72" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/anaconda3/lib/python3.7/multiprocessing/pool.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="290">
           <caret line="355" column="8" selection-start-line="355" selection-start-column="8" selection-end-line="355" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/anaconda3/lib/python3.7/threading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="757" column="8" selection-start-line="757" selection-start-column="8" selection-end-line="757" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ipynb_convertor_category_generator/convert_ipynb_and_generate_category.sh">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ipynb_convertor_category_generator/filter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -615,40 +683,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/backup/backup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="123" column="52" selection-start-line="123" selection-start-column="52" selection-end-line="123" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/remote_transport/server_transporter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="125" column="42" lean-forward="true" selection-start-line="125" selection-start-column="42" selection-end-line="125" selection-end-column="42" />
+        <state relative-caret-position="2616">
+          <caret line="114" column="33" selection-start-line="114" selection-start-column="33" selection-end-line="114" selection-end-column="33" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/mytime.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" column="61" lean-forward="true" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/folder_reference.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="457" selection-start-column="377" selection-end-column="457" />
+        <state relative-caret-position="168">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/utils/myfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sync_history.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backup/backup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="142" column="53" selection-start-line="142" selection-start-column="53" selection-end-line="142" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/paramiko/transport.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="823">
+          <caret line="287" column="8" selection-start-line="287" selection-start-column="8" selection-end-line="287" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ipynb_convertor_category_generator/category_generator.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ipynb_convertor_category_generator/convert_ipynb_and_generate_category.sh">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ipynb_convertor_category_generator/filter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="24" column="25" lean-forward="true" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        <state relative-caret-position="-1769">
+          <caret line="48" column="23" selection-start-line="48" selection-start-column="23" selection-end-line="48" selection-end-column="23" />
+          <folding>
+            <element signature="e#23#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/local/anaconda3/lib/python3.7/posixpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/trash_manager/trash_manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

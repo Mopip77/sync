@@ -2,6 +2,8 @@ import os
 import shutil
 import yaml
 import json
+import threading
+import socket
 
 from threading import Thread
 from multiprocessing.pool import Pool
@@ -13,12 +15,13 @@ from src.remote_transport.server_transporter import ServerTransporter
 from src.font_color import font_color as FC
 
 attachCommandRemoteConfigQueue = Manager().list()
-
+failedConnectRemoteDict = Manager().dict()
 
 class BackUpUtil():
     rootPath = '/'.join(os.path.realpath(__file__).split('/')[:-3])
     configPath = os.path.join(rootPath, 'config.yaml')
     referencePath = os.path.join(rootPath, 'folder_reference.json')
+    syncHistoryPath = os.path.join(rootPath, 'sync_history.log')
 
     def __init__(self, syncNames=None):
         self.dateTimePattern = None
@@ -47,10 +50,20 @@ class BackUpUtil():
         fp.write(json.dumps(self.folderRefernece))
         fp.close()
 
-    def _desktopNotify(self):
-        text = '\n'.join([_['src'] for _ in self.folderRefernece])
-        title = "备份完成,同步了{}个文件夹".format(len(self.folderRefernece))
+    def _desktopNotify(self, syncedPaths, failedConnectPath):
+        title = "备份完成,同步了{}个文件夹".format(len(syncedPaths))
+        syncedText = '\n'.join(syncedPaths) + '\n'
+        failedConnectText = ''
+
+        for destPath, remotePath in failedConnectRemoteDict.items():
+            failedConnectText += remotePath + '\n'
+
+        text = syncedText + ('\n备份失败,remote未连接:\n' if failedConnectText != '' else '') + failedConnectText
         os.system('notify-cron -t 5000 "{}" "{}"'.format(title, text))
+
+        print(FC.g(title) + '\n' + text)
+        with open(self.syncHistoryPath, 'a') as f:
+            f.write("[{}]\n{}-------------------------------\n".format(getStrfTime(self.dateTimePattern), text))
 
     def _syncFiles(self, curSrcPath, srcFiles, curDestPath, destFiles, lastSyncTime, destRootPath, remote, trashbin):
         """同步curSrcPath文件夹的所有文件到目标文件夹同级的位置"""
@@ -125,42 +138,50 @@ class BackUpUtil():
 
     def _handleFolder(self, srcPath, destInfo, trace=''):
         """同步当前传入的folderReference"""
-        destPath = destInfo['destPath']
-        expiredPeriod = destInfo['expiredPeriod']
-        lastSyncTime = None if destInfo['lastSyncTime'] is None else parseStrfTime(self.dateTimePattern, destInfo['lastSyncTime'])
-        trashbin = TrashManager(self.trashPath, destPath, expiredPeriod)
-        remote = [ServerTransporter(remoteConfig) for remoteConfig in destInfo['remote'] ]
+        try:
+            destPath = destInfo['destPath']
+            expiredPeriod = destInfo['expiredPeriod']
+            lastSyncTime = None if destInfo['lastSyncTime'] is None else parseStrfTime(self.dateTimePattern, destInfo['lastSyncTime'])
+            trashbin = TrashManager(self.trashPath, destPath, expiredPeriod)
+            # 由于远程必须和目标文件夹同步, 所以如果断网等原因没连上则直接抛出异常, 不再同步, 并且异常的配置为第len(remote)个
+            remote = []
+            for remoteConfig in destInfo['remote']:
+                remote.append(ServerTransporter(remoteConfig))
 
+            srcQueue = [trace]
+            # 循环遍历,不用递归了
+            while len(srcQueue) > 0:
+                trace = srcQueue.pop()
+                # 当前匹配路径
+                curSrcPath = os.path.join(srcPath, trace)
+                curDestPath = os.path.join(destPath, trace)
 
-        srcQueue = [trace]
-        # 循环遍历,不用递归了
-        while len(srcQueue) > 0:
-            trace = srcQueue.pop()
-            # 当前匹配路径
-            curSrcPath = os.path.join(srcPath, trace)
-            curDestPath = os.path.join(destPath, trace)
+                # 文件夹内部文件改变,文件夹的修改时间并不会变,所以以此判断可能会造成漏判
+                print(FC.c("check: {}").format(curSrcPath))
 
-            # 文件夹内部文件改变,文件夹的修改时间并不会变,所以以此判断可能会造成漏判
-            print(FC.c("check: {}").format(curSrcPath))
+                if not os.path.isdir(curDestPath):
+                    os.makedirs(curDestPath)
+                    for r in remote:
+                        r.mkdir(curDestPath[len(destPath)+1:])
+                # 获得源,目标路径文件夹和文件
+                srcFolders, srcFiles = getSubfolderAndFiles(curSrcPath)
+                destFolders, destFiles = getSubfolderAndFiles(curDestPath)
+                # 比对更新当前文件夹下所有文件夹
+                self._syncFolders(srcFolders, curDestPath, destFolders, destPath, remote, trashbin)
+                # 比对更新当前文件夹下所有文件
+                self._syncFiles(curSrcPath, srcFiles, curDestPath, destFiles, lastSyncTime, destPath, remote, trashbin)
+                # 进入下个文件夹
+                srcQueue.extend([os.path.join(trace, srcF) for srcF in srcFolders])
 
-            if not os.path.isdir(curDestPath):
-                os.makedirs(curDestPath)
-                for r in remote:
-                    r.mkdir(curDestPath[len(destPath)+1:])
-            # 获得源,目标路径文件夹和文件
-            srcFolders, srcFiles = getSubfolderAndFiles(curSrcPath)
-            destFolders, destFiles = getSubfolderAndFiles(curDestPath)
-            # 比对更新当前文件夹下所有文件夹
-            self._syncFolders(srcFolders, curDestPath, destFolders, destPath, remote, trashbin)
-            # 比对更新当前文件夹下所有文件
-            self._syncFiles(curSrcPath, srcFiles, curDestPath, destFiles, lastSyncTime, destPath, remote, trashbin)
-            # 进入下个文件夹
-            srcQueue.extend([os.path.join(trace, srcF) for srcF in srcFolders])
-
-        # 额外执行命令
-        attachCommandRemoteConfigQueue.extend(
-            [r.getConfig(log=True) for r in remote if r.attachCommand is not None])
-        trashbin.deleteExpiredFiles()
+            # 额外执行命令
+            attachCommandRemoteConfigQueue.extend(
+                [r.getConfig(log=True) for r in remote if r.attachCommand is not None])
+            trashbin.deleteExpiredFiles()
+        except socket.timeout:
+            # k-destPath v-remotePath
+            failedConnectRemoteDict[destInfo['destPath']] = ServerTransporter.getFormattedStr(destInfo['remote'][len(remote)])
+        except Exception as e:
+            print(e)
 
     def _checkSameInReference(self, path, field):
         for idx, ref in enumerate(self.folderRefernece):
@@ -192,9 +213,9 @@ class BackUpUtil():
 
     def _sync_job(self, reference, destIdxes=None):
         if destIdxes is None:
-            threads = [Thread(target=self._handleFolder, args=(reference['src'], dest)) for dest in reference['dest']]
+            threads = [Thread(target=self._handleFolder, args=(reference['src'], dest), name=dest['destPath']) for dest in reference['dest']]
         else:
-            threads = [Thread(target=self._handleFolder, args=(reference['src'], reference['dest'][idx])) for idx in destIdxes]
+            threads = [Thread(target=self._handleFolder, args=(reference['src'], reference['dest'][idx]), name=reference['dest'][idx]['destPath']) for idx in destIdxes]
 
         for t in threads:
             t.start()
@@ -204,6 +225,7 @@ class BackUpUtil():
     def sync(self, name=None, destIndexes=None, n_jobs=4):
         pool = Pool(n_jobs)
         nowTime = getStrfTime(self.dateTimePattern)
+        syncedDestPaths = []
 
         if name is None:
             # 全部更新
@@ -213,28 +235,33 @@ class BackUpUtil():
             # 更新时间
             for fr in self.folderRefernece:
                 for dest in fr['dest']:
-                    dest['lastSyncTime'] = nowTime
+                    if dest['destPath'] not in failedConnectRemoteDict.keys():
+                        syncedDestPaths.append(dest['destPath'])
+                        dest['lastSyncTime'] = nowTime
         else:
             # 单个更新
             syncFolder = [ref for ref in self.folderRefernece if ref['name'] == name]
-            # syncFolder = list(filter(lambda ref: ref['name'] == name, self.folderRefernece))
             assert len(syncFolder) > 0, "没有对应的映射"
             syncFolder = syncFolder[0]
 
             if destIndexes is None:
                 self._sync_job(syncFolder)
                 for dest in syncFolder['dest']:
-                    dest['lastSyncTime'] = nowTime
+                    if dest['destPath'] not in failedConnectRemoteDict.keys():
+                        syncedDestPaths.append(dest['destPath'])
+                        dest['lastSyncTime'] = nowTime
             else:
                 assert all([idx < len(syncFolder['dest']) for idx in destIndexes])
                 self._sync_job(syncFolder, destIndexes)
                 for idx in destIndexes:
-                    syncFolder['dest'][idx]['lastSyncTime'] = nowTime
+                    if syncFolder['dest'][idx]['destPath'] not in failedConnectRemoteDict.keys():
+                        syncedDestPaths.append(syncFolder['dest'][idx]['destPath'])
+                        syncFolder['dest'][idx]['lastSyncTime'] = nowTime
 
         # 写回folderRenference
         self._updateFolderReference()
         # 桌面提醒
-        self._desktopNotify()
+        self._desktopNotify(syncedDestPaths, failedConnectRemoteDict)
         # 执行额外remote命令
         print("------exec attatch command------")
         jobs = [pool.apply_async(ServerTransporter.execAttachCommand, args=(config, )) for config in attachCommandRemoteConfigQueue]
@@ -459,6 +486,10 @@ class BackUpUtil():
         except:
             print('序号不合规范')
 
+    def showHistory(self):
+        with open(self.syncHistoryPath, 'r') as f:
+            print(f.read())
+
     def display(self):
         if len(self.folderRefernece) == 0:
 
@@ -475,7 +506,7 @@ class BackUpUtil():
                             FC.y("[尚未备份]")
                         ))
                     else:
-                        print('       [{}] Dest: {}{}'.format(
+                        print('       {} Dest: {}{}'.format(
                             FC.g("[{}]".format(str(destIdx).zfill(2))),
                             dest['destPath'],
                             FC.y("[{}]".format(dest['lastSyncTime']))

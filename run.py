@@ -19,6 +19,8 @@ if __name__ == "__main__":
             buu.modifyRenference()
         elif args[1] == 'd':
             buu.delRenference()
+        elif args[1] == 'h':
+            buu.showHistory()
         elif args[1] == 's':
             name = args[2] if len(args) >= 3 else None
             destIdx = args[3:] if len(args) >= 4 else None
@@ -31,6 +33,7 @@ command arguments:
   a,                  add new reference
   m,                  modify existing reference
   d,                  delete existing reference
+  h,                  show the sync history
   s {Name Indxes},    synchronize the references with the Name, which destination indexes belongs to Indexes
             """)
         else:
